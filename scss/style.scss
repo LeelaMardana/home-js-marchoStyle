@@ -1,0 +1,605 @@
+@import "reset";
+@import "fonts";
+@import "vars";
+
+body {
+  @extend %q500;
+  font-size: 16px;
+  line-height: 26px;
+  color: #8d8d8d;
+  user-select: none;
+  padding-bottom: 300px;
+}
+.box {
+  display: flex;
+  box-shadow: rgba(172, 172, 172, 0.3) 0px 10px 40px 0px;
+  padding: 55px 20px 60px;
+}
+.container {
+  width: 97%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.top {
+  background-color: #ececec;
+  margin-top: 50px;
+  &-title {
+    color: rgb(41, 40, 45);
+    font-size: 48px;
+    line-height: 60px;
+    text-transform: uppercase;
+    @extend %r400;
+    text-align: center;
+    padding: 100px 0;
+  }
+}
+.title {
+  color: rgb(41, 40, 45);
+  font-size: 22px;
+  margin-bottom: 25px;
+  @extend %r400;
+  text-transform: uppercase;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAh0lEQVQ4T93TMQrCUAzG8V9x8QziiYSuXdzFC7h4AcELOPQAdXYovZCHEATlgQV5GFTe1ozJlz/kS1IpjKqw3wQBVyy++JI0y1GTe7DCBbMAckeNIQKk/BanALBB+16LtnDELoMcsM/BESDlz2heDR3WePwKSLo5eoxz3z6NNcFD+vu3ij14Aqz/DxGbKB7CAAAAAElFTkSuQmCC");
+  background-repeat: no-repeat;
+  background-position: 96% center;
+  background-color: #f6f6f6;
+  height: 60px;
+  padding: 0px 25px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #29282d;
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+.main {
+  padding: 30px 0;
+  &-inner {
+    width: 700px;
+    padding-right: 15px;
+    flex: 1;
+  }
+  &-form {
+    padding-bottom: 25px;
+  }
+  &-form__box {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  &-form__input {
+    background-color: rgb(246, 246, 246);
+    width: 100%;
+    height: 60px;
+    padding: 0px 25px;
+    border: none;
+    &::placeholder {
+      color: #8d8d8d;
+    }
+  }
+  &-range {
+    padding: 25px 0;
+  }
+  &-range__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
+    input {
+      width: 100%;
+      -webkit-appearance: none;
+      background: #fe3e57;
+      height: 8px;
+      border-radius: 5px;
+      &:disabled {
+        background: #8d8d8d;
+        cursor: default;
+      }
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      background-color: #ececec;
+      cursor: pointer;
+      margin-top: 0px;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+    input[type="range"]:disabled::-webkit-slider-thumb {
+      cursor: default;
+    }
+  }
+  &-gender {
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-gender__title {
+    margin-bottom: 0;
+  }
+  &-gender__box {
+    display: flex;
+    gap: 50px;
+  }
+  &-gender__label {
+    width: 120px;
+    cursor: pointer;
+  }
+  &-gender__input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  &-gender__checkbox {
+    padding: 6px 18px;
+    border: 1px solid #8d8d8d;
+    transition: all 0.3s;
+  }
+  &-gender__input:checked + .main-gender__checkbox {
+    border: 1px solid #fe3e57;
+    background-color: #fe3e57;
+    color: #fff;
+  }
+  &-gender__input:checked:disabled + .main-gender__checkbox {
+    background-color: #8d8d8d;
+    border: 1px solid #8d8d8d;
+    cursor: default;
+  }
+  &-gender__input:disabled + .main-gender__checkbox {
+    cursor: default;
+  }
+  &-gender__text {
+    text-align: center;
+    display: block;
+  }
+  &-children {
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-children__title {
+    margin-bottom: 0;
+  }
+  &-children__label {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #8d8d8d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  &-children__checkbox {
+    width: 35px;
+    height: 35px;
+    display: block;
+    background-color: transparent;
+    border-radius: 4px;
+  }
+  &-children__input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  &-children__input:checked + .main-children__checkbox {
+    background-color: #fe3e57;
+  }
+  &-children__input:checked:disabled + .main-children__checkbox {
+    background-color: #8d8d8d;
+    cursor: default;
+  }
+  &-language {
+    padding: 25px 0;
+  }
+  &-language__inner {
+    display: flex;
+    gap: 35px;
+  }
+  &-language__set {
+    display: flex;
+    height: fit-content;
+    flex-grow: 1;
+    input {
+      background-color: rgb(246, 246, 246);
+      height: 60px;
+      padding: 0px 25px;
+      width: 100%;
+      border: none;
+      &::placeholder {
+        color: #8d8d8d;
+      }
+    }
+  }
+  &-language__set-btn {
+    color: #fff;
+    background-color: #fe3e57;
+    max-width: 60px;
+    width: 100%;
+    padding: 0 8px;
+    cursor: pointer;
+    border: none;
+    &:disabled {
+      background-color: #8d8d8d;
+      cursor: default;
+    }
+  }
+  &-language__item {
+    margin-bottom: 25px;
+    display: flex;
+    input {
+      background-color: rgb(246, 246, 246);
+      height: 40px;
+      padding: 0px 25px;
+      border: none;
+      &::placeholder {
+        color: #8d8d8d;
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &-language__item-btn {
+    color: #fff;
+    background-color: #fe3e57;
+    padding: 0 8px;
+    cursor: pointer;
+    border: none;
+    &:disabled {
+      background-color: #8d8d8d;
+      cursor: default;
+    }
+  }
+  &-destiny {
+    padding: 25px 0;
+  }
+}
+
+// .atheist,
+.cristian,
+.zadrot {
+  display: none;
+}
+
+.atheist {
+  padding-top: 20px;
+  &__title {
+    color: #fe3e57;
+    font-size: 22px;
+    text-transform: uppercase;
+  }
+  &-interview {
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-interview__title {
+    margin-bottom: 0;
+  }
+  &-interview__label {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #8d8d8d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  &-interview__checkbox {
+    width: 35px;
+    height: 35px;
+    display: block;
+    background-color: transparent;
+    border-radius: 4px;
+  }
+  &-interview__input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  &-interview__input:checked + .atheist-interview__checkbox {
+    background-color: #fe3e57;
+  }
+  &-interview__input:checked:disabled + .atheist-interview__checkbox {
+    background-color: #8d8d8d;
+    cursor: default;
+  }
+  &-skills {
+    padding: 25px 0;
+  }
+  &-skills__inner {
+    display: flex;
+    gap: 35px;
+  }
+  &-skills__set {
+    display: flex;
+    height: fit-content;
+    flex-grow: 1;
+    input {
+      background-color: rgb(246, 246, 246);
+      height: 60px;
+      padding: 0px 25px;
+      width: 100%;
+      border: none;
+      &::placeholder {
+        color: #8d8d8d;
+      }
+    }
+  }
+  &-skills__set-btn {
+    color: #fff;
+    background-color: #fe3e57;
+    max-width: 60px;
+    width: 100%;
+    padding: 0 8px;
+    cursor: pointer;
+    border: none;
+    &:disabled {
+      background-color: #8d8d8d;
+      cursor: default;
+    }
+  }
+  &-skills__item {
+    margin-bottom: 25px;
+    display: flex;
+    input {
+      background-color: rgb(246, 246, 246);
+      height: 40px;
+      padding: 0px 25px;
+      border: none;
+      &::placeholder {
+        color: #8d8d8d;
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &-skills__item-btn {
+    color: #fff;
+    background-color: #fe3e57;
+    padding: 0 8px;
+    cursor: pointer;
+    border: none;
+    &:disabled {
+      background-color: #8d8d8d;
+      cursor: default;
+    }
+  }
+  &-education {
+    padding: 25px 0;
+  }
+  &-education__input {
+    background-color: rgb(246, 246, 246);
+    width: 100%;
+    height: 60px;
+    padding: 0px 25px;
+    border: none;
+    &::placeholder {
+      color: #8d8d8d;
+    }
+  }
+}
+.cristian {
+  padding-top: 20px;
+
+  &__title {
+    color: #fe3e57;
+    font-size: 22px;
+    text-transform: uppercase;
+  }
+  &-interview {
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-interview__title {
+    margin-bottom: 0;
+  }
+  &-interview__label {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #8d8d8d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  &-interview__checkbox {
+    width: 35px;
+    height: 35px;
+    display: block;
+    background-color: transparent;
+    border-radius: 4px;
+  }
+  &-interview__input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  &-interview__input:checked + .cristian-interview__checkbox {
+    background-color: #fe3e57;
+  }
+  &-interview__input:checked:disabled + .cristian-interview__checkbox {
+    background-color: #8d8d8d;
+    cursor: default;
+  }
+  &-skills {
+    padding: 25px 0;
+  }
+  &-skills__inner {
+    display: flex;
+    gap: 35px;
+  }
+  &-skills__set {
+    display: flex;
+    height: fit-content;
+    flex-grow: 1;
+    input {
+      background-color: rgb(246, 246, 246);
+      height: 60px;
+      padding: 0px 25px;
+      width: 100%;
+      border: none;
+      &::placeholder {
+        color: #8d8d8d;
+      }
+    }
+  }
+  &-skills__set-btn {
+    color: #fff;
+    background-color: #fe3e57;
+    max-width: 60px;
+    width: 100%;
+    padding: 0 8px;
+    cursor: pointer;
+    border: none;
+    &:disabled {
+      background-color: #8d8d8d;
+      cursor: default;
+    }
+  }
+  &-skills__item {
+    margin-bottom: 25px;
+    display: flex;
+    input {
+      background-color: rgb(246, 246, 246);
+      height: 40px;
+      padding: 0px 25px;
+      border: none;
+      &::placeholder {
+        color: #8d8d8d;
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &-skills__item-btn {
+    color: #fff;
+    background-color: #fe3e57;
+    padding: 0 8px;
+    cursor: pointer;
+    border: none;
+    &:disabled {
+      background-color: #8d8d8d;
+      cursor: default;
+    }
+  }
+}
+.zadrot {
+  padding-top: 20px;
+
+  &__title {
+    color: #fe3e57;
+    font-size: 22px;
+    text-transform: uppercase;
+  }
+  &__box {
+    display: flex;
+    gap: 30px;
+  }
+  &__box-item {
+    width: 100%;
+  }
+  &__title,
+  &-fraction__title,
+  &-class__title {
+    text-align: center;
+  }
+  &-fraction {
+    padding: 25px 0;
+  }
+  &-class {
+    padding: 25px 0;
+  }
+}
+.btn-save {
+  color: #fff;
+  background-color: #fe3e57;
+  width: 50px;
+  height: 20px;
+  cursor: pointer;
+  border: none;
+  width: 145px;
+  height: 45px;
+  text-transform: uppercase;
+}
+
+.data {
+  width: 300px;
+  padding-left: 15px;
+  border-left: 1px solid #8d8d8d;
+  &__title {
+    text-align: center;
+  }
+  &-item {
+    padding: 15px 20px;
+    border: 2px solid rgb(236, 236, 236);
+    margin-bottom: 40px;
+  }
+  &-item__title {
+    color: #fe3e57;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  &-item__wrap {
+    border: 1px solid #ececed;
+    border-radius: 18px;
+    padding: 0 15px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  &-item__name {
+    width: 110px;
+  }
+  &-item__value {
+    @extend %q700;
+    color: #29282d;
+  }
+  &-item__list {
+    margin-bottom: 25px;
+  }
+  &-item__btn {
+    border: 1px solid #ececed;
+    border-radius: 18px;
+    padding: 0 15px;
+    background-color: #fe3e57;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+  }
+}
+// &-item__btn {
+//     color: #fff;
+//     background-color: #fe3e57;
+//     padding: 0 8px;
+//     cursor: pointer;
+//     border: none;
+//     &:disabled {
+//       background-color: #8d8d8d;
+//       cursor: default;
+//     }
+//   }
