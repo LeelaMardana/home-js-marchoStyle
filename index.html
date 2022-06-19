@@ -19,118 +19,102 @@
         <div class="container">
           <div class="box">
             <div class="main-inner">
-              <form class="main-form" action="#">
-                <h3 class="main-form__title title">Tell Us About Yourself</h3>
-                <div class="main-form__box">
-                  <input
-                    class="main-form__input"
-                    placeholder="Your Name"
-                    type="text"
-                  />
-                  <input
-                    class="main-form__input"
-                    placeholder="Your Lastname"
-                    type="text"
-                  />
-                </div>
-              </form>
-              <div class="main-range">
-                <h3 class="main-range__title title">Your Age</h3>
-                <div class="main-range__item">
-                  <input class="range" type="range" />
-                  <span>100 yers old</span>
-                </div>
-              </div>
-              <div class="main-gender">
-                <h3 class="main-gender__title title">Choose Your Gender</h3>
-                <div class="main-gender__box">
-                  <label class="main-gender__label"
-                    ><input
-                      class="main-gender__input"
-                      type="radio"
-                      name="gender"
-                      checked
-                    />
-                    <div class="main-gender__checkbox">
-                      <span class="main-gender__text">Male</span>
-                    </div>
-                  </label>
-                  <label class="main-gender__label"
-                    ><input
-                      class="main-gender__input"
-                      type="radio"
-                      name="gender"
-                    />
-                    <div class="main-gender__checkbox">
-                      <span class="main-gender__text">Female</span>
-                    </div>
-                  </label>
-                </div>
-              </div>
-              <div class="main-children">
-                <h3 class="main-children__title title">
-                  Do you have any children?
-                </h3>
-                <label class="main-children__label">
-                  <input class="main-children__input" type="checkbox" />
-                  <span class="main-children__checkbox"></span>
-                </label>
-              </div>
-              <div class="main-language">
-                <h3 class="main-language__title title">
-                  What language do you know?
-                </h3>
-                <div class="main-language__inner">
-                  <div class="main-language__set">
+              <div class="main-box">
+                <form class="main-form" action="#">
+                  <h3 class="main-form__title title">Tell Us About Yourself</h3>
+                  <div class="main-form__box">
                     <input
-                      class="main-language__set-input"
+                      class="main-form__input input-name"
+                      placeholder="Your Name"
                       type="text"
-                      placeholder="Your Language"
                     />
-                    <button class="main-language__set-btn">add</button>
+                    <input
+                      class="main-form__input input-lastname"
+                      placeholder="Your Lastname"
+                      type="text"
+                    />
                   </div>
-                  <div class="main-language__items">
-                    <div class="main-language__item">
-                      <input
-                        class="main-language__item-input"
-                        type="text"
-                        disabled
-                      />
-                      <button class="main-language__item-btn" disabled>
-                        remove
-                      </button>
-                    </div>
-                    <div class="main-language__item">
-                      <input
-                        class="main-language__item-input"
-                        type="text"
-                        disabled
-                      />
-                      <button class="main-language__item-btn" disabled>
-                        remove
-                      </button>
-                    </div>
-                    <div class="main-language__item">
-                      <input
-                        class="main-language__item-input"
-                        type="text"
-                        disabled
-                      />
-                      <button class="main-language__item-btn" disabled>
-                        remove
-                      </button>
-                    </div>
+                </form>
+                <div class="main-range">
+                  <h3 class="main-range__title title">Your Age</h3>
+                  <div class="main-range__item">
+                    <input
+                      class="range"
+                      type="range"
+                      min="2"
+                      max="120"
+                      value="18"
+                    />
+                    <span>18 yers old</span>
                   </div>
                 </div>
-              </div>
-              <div class="main-destiny">
-                <h3 class="main-destiny__title title">choose your destiny</h3>
-                <select name="destiny__select">
-                  <option value="" selected>Types of Destiny</option>
-                  <option value="Atheist">Atheist</option>
-                  <option value="Cristian">Cristian</option>
-                  <option value="Zadrot">Zadrot</option>
-                </select>
+                <div class="main-gender">
+                  <h3 class="main-gender__title title">Choose Your Gender</h3>
+                  <div class="main-gender__box">
+                    <label class="main-gender__label"
+                      ><input
+                        class="main-gender__input"
+                        type="radio"
+                        name="gender"
+                        value=""
+                      />
+                      <div class="main-gender__checkbox">
+                        <span class="main-gender__text">Male</span>
+                      </div>
+                    </label>
+                    <label class="main-gender__label"
+                      ><input
+                        class="main-gender__input"
+                        type="radio"
+                        name="gender"
+                        value=""
+                      />
+                      <div class="main-gender__checkbox">
+                        <span class="main-gender__text">Female</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div class="main-children">
+                  <h3 class="main-children__title title">
+                    Do you have any children?
+                  </h3>
+                  <label class="main-children__label">
+                    <input class="main-children__input" type="checkbox" />
+                    <span class="main-children__checkbox"></span>
+                  </label>
+                </div>
+                <div class="main-language">
+                  <h3 class="main-language__title title">
+                    What language do you know?
+                  </h3>
+                  <div class="main-language__inner">
+                    <form class="main-language__set">
+                      <input
+                        class="main-language__set-input"
+                        type="text"
+                        placeholder="Your Language"
+                      />
+                      <button
+                        class="main-language__set-btn"
+                        disabled
+                        type="submit"
+                      >
+                        add
+                      </button>
+                    </form>
+                    <div class="main-language__items"></div>
+                  </div>
+                </div>
+                <div class="main-destiny">
+                  <h3 class="main-destiny__title title">choose your destiny</h3>
+                  <select name="destiny__select">
+                    <option value="" selected>Types of Destiny</option>
+                    <option value="atheist">Atheist</option>
+                    <option value="cristian">Cristian</option>
+                    <option value="zadrot">Zadrot</option>
+                  </select>
+                </div>
               </div>
               <div class="atheist">
                 <h2 class="atheist__title">atheist</h2>
@@ -160,105 +144,47 @@
                     what skills do you have?
                   </h3>
                   <div class="atheist-skills__inner">
-                    <div class="atheist-skills__set">
+                    <form class="atheist-skills__set">
                       <input
                         class="atheist-skills__set-input"
                         type="text"
                         placeholder="Your skills"
                       />
-                      <button class="atheist-skills__set-btn">add</button>
-                    </div>
-                    <div class="atheist-skills__items">
-                      <div class="atheist-skills__item">
-                        <input
-                          class="atheist-skills__item-input"
-                          type="text"
-                          disabled
-                        />
-                        <button class="atheist-skills__item-btn" disabled>
-                          remove
-                        </button>
-                      </div>
-                      <div class="atheist-skills__item">
-                        <input
-                          class="atheist-skills__item-input"
-                          type="text"
-                          disabled
-                        />
-                        <button class="atheist-skills__item-btn" disabled>
-                          remove
-                        </button>
-                      </div>
-                      <div class="atheist-skills__item">
-                        <input
-                          class="atheist-skills__item-input"
-                          type="text"
-                          disabled
-                        />
-                        <button class="atheist-skills__item-btn" disabled>
-                          remove
-                        </button>
-                      </div>
-                    </div>
+                      <button class="atheist-skills__set-btn" disabled>
+                        add
+                      </button>
+                    </form>
+                    <div class="atheist-skills__items"></div>
                   </div>
                 </div>
               </div>
               <div class="cristian">
                 <h2 class="cristian__title">cristian</h2>
-                <div class="cristian-skills">
-                  <h3 class="cristian-skills__title title">
+                <div class="cristian-sins">
+                  <h3 class="cristian-sins__title title">
                     Tell us about your sins
                   </h3>
-                  <div class="cristian-skills__inner">
-                    <div class="cristian-skills__set">
+                  <div class="cristian-sins__inner">
+                    <form class="cristian-sins__set">
                       <input
-                        class="cristian-skills__set-input"
+                        class="cristian-sins__set-input"
                         type="text"
                         placeholder="Your sins"
                       />
-                      <button class="cristian-skills__set-btn">add</button>
-                    </div>
-                    <div class="cristian-skills__items">
-                      <div class="cristian-skills__item">
-                        <input
-                          class="cristian-skills__item-input"
-                          type="text"
-                          disabled
-                        />
-                        <button class="cristian-skills__item-btn" disabled>
-                          remove
-                        </button>
-                      </div>
-                      <div class="cristian-skills__item">
-                        <input
-                          class="cristian-skills__item-input"
-                          type="text"
-                          disabled
-                        />
-                        <button class="cristian-skills__item-btn" disabled>
-                          remove
-                        </button>
-                      </div>
-                      <div class="cristian-skills__item">
-                        <input
-                          class="cristian-skills__item-input"
-                          type="text"
-                          disabled
-                        />
-                        <button class="cristian-skills__item-btn" disabled>
-                          remove
-                        </button>
-                      </div>
-                    </div>
+                      <button class="cristian-sins__set-btn" disabled>
+                        add
+                      </button>
+                    </form>
+                    <div class="cristian-sins__items"></div>
                   </div>
                 </div>
-                <div class="cristian-interview">
-                  <h3 class="cristian-interview__title title">
+                <div class="cristian-blessed">
+                  <h3 class="cristian-blessed__title title">
                     Have you been blessed?
                   </h3>
-                  <label class="cristian-interview__label">
-                    <input class="cristian-interview__input" type="checkbox" />
-                    <span class="cristian-interview__checkbox"></span>
+                  <label class="cristian-blessed__label">
+                    <input class="cristian-blessed__input" type="checkbox" />
+                    <span class="cristian-blessed__checkbox"></span>
                   </label>
                 </div>
               </div>
@@ -298,60 +224,7 @@
             <div class="data">
               <h3 class="data__title title">List of greatness</h3>
               <div class="data__inner">
-                <div class="data__items">
-                  <div class="data-item">
-                    <h4 class="data-item__title">Arthas - Cristian</h4>
-                    <ul class="data-item__list">
-                      <li class="data-item__wrap data-name">
-                        <span class="data-item__name">Name:</span>
-                        <span class="data-item__value">Arthas</span>
-                      </li>
-                      <li class="data-item__wrap data-lastname">
-                        <span class="data-item__name">Lastname:</span>
-                        <span class="data-item__value">Menethil</span>
-                      </li>
-                      <li class="data-item__wrap data-age">
-                        <span class="data-item__name">Age:</span>
-                        <span class="data-item__value">23</span>
-                      </li>
-                      <li class="data-item__wrap data-gender">
-                        <span class="data-item__name">Gender:</span>
-                        <span class="data-item__value">Male</span>
-                      </li>
-                      <li class="data-item__wrap data-children">
-                        <span class="data-item__name">Children:</span>
-                        <span class="data-item__value">no</span>
-                      </li>
-                      <li class="data-item__wrap data-language">
-                        <span class="data-item__name">Languange:</span>
-                        <span class="data-item__value">
-                          English, Russian, Spain
-                        </span>
-                      </li>
-                      <div class="data-atheist">
-                        <li class="data-item__wrap data-destiny">
-                          <span class="data-item__name">Destiny:</span>
-                          <span class="data-item__value">Atheist</span>
-                        </li>
-                        <li class="data-item__wrap data-interview">
-                          <span class="data-item__name">Interview:</span>
-                          <span class="data-item__value"> Yes </span>
-                        </li>
-                        <li class="data-item__wrap data-education">
-                          <span class="data-item__name">Education:</span>
-                          <span class="data-item__value">Medicine</span>
-                        </li>
-                        <li class="data-item__wrap data-skills">
-                          <span class="data-item__name">Skills:</span>
-                          <span class="data-item__value"> write, read </span>
-                        </li>
-                        <button class="data-item__btn" type="button">
-                          Delete Person
-                        </button>
-                      </div>
-                    </ul>
-                  </div>
-                </div>
+                <div class="data__items"></div>
               </div>
             </div>
           </div>

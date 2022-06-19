@@ -9,6 +9,7 @@ body {
   color: #8d8d8d;
   user-select: none;
   padding-bottom: 300px;
+  position: relative;
 }
 .box {
   display: flex;
@@ -65,10 +66,16 @@ select {
 
 .main {
   padding: 30px 0;
+  background-color: #fff;
   &-inner {
     width: 700px;
     padding-right: 15px;
     flex: 1;
+  }
+  &-box {
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
   }
   &-form {
     padding-bottom: 25px;
@@ -214,11 +221,13 @@ select {
     display: flex;
     height: fit-content;
     flex-grow: 1;
+    gap: 2px;
     input {
       background-color: rgb(246, 246, 246);
       height: 60px;
       padding: 0px 25px;
       width: 100%;
+      max-width: 392px;
       border: none;
       &::placeholder {
         color: #8d8d8d;
@@ -270,14 +279,9 @@ select {
   }
 }
 
-// .atheist,
-.cristian,
-.zadrot {
-  display: none;
-}
-
 .atheist {
   padding-top: 20px;
+  background-color: #fff;
   &__title {
     color: #fe3e57;
     font-size: 22px;
@@ -337,6 +341,7 @@ select {
       height: 60px;
       padding: 0px 25px;
       width: 100%;
+      max-width: 392px;
       border: none;
       &::placeholder {
         color: #8d8d8d;
@@ -364,6 +369,7 @@ select {
       height: 40px;
       padding: 0px 25px;
       border: none;
+
       &::placeholder {
         color: #8d8d8d;
       }
@@ -399,22 +405,22 @@ select {
 }
 .cristian {
   padding-top: 20px;
-
+  background-color: #fff;
   &__title {
     color: #fe3e57;
     font-size: 22px;
     text-transform: uppercase;
   }
-  &-interview {
+  &-blessed {
     padding: 25px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  &-interview__title {
+  &-blessed__title {
     margin-bottom: 0;
   }
-  &-interview__label {
+  &-blessed__label {
     width: 50px;
     height: 50px;
     border: 1px solid #8d8d8d;
@@ -424,33 +430,33 @@ select {
     border-radius: 4px;
     cursor: pointer;
   }
-  &-interview__checkbox {
+  &-blessed__checkbox {
     width: 35px;
     height: 35px;
     display: block;
     background-color: transparent;
     border-radius: 4px;
   }
-  &-interview__input {
+  &-blessed__input {
     position: absolute;
     z-index: -1;
     opacity: 0;
   }
-  &-interview__input:checked + .cristian-interview__checkbox {
+  &-blessed__input:checked + .cristian-blessed__checkbox {
     background-color: #fe3e57;
   }
-  &-interview__input:checked:disabled + .cristian-interview__checkbox {
+  &-blessed__input:checked:disabled + .cristian-blessed__checkbox {
     background-color: #8d8d8d;
     cursor: default;
   }
-  &-skills {
+  &-sins {
     padding: 25px 0;
   }
-  &-skills__inner {
+  &-sins__inner {
     display: flex;
     gap: 35px;
   }
-  &-skills__set {
+  &-sins__set {
     display: flex;
     height: fit-content;
     flex-grow: 1;
@@ -459,13 +465,14 @@ select {
       height: 60px;
       padding: 0px 25px;
       width: 100%;
+      max-width: 392px;
       border: none;
       &::placeholder {
         color: #8d8d8d;
       }
     }
   }
-  &-skills__set-btn {
+  &-sins__set-btn {
     color: #fff;
     background-color: #fe3e57;
     max-width: 60px;
@@ -478,7 +485,7 @@ select {
       cursor: default;
     }
   }
-  &-skills__item {
+  &-sins__item {
     margin-bottom: 25px;
     display: flex;
     input {
@@ -494,7 +501,7 @@ select {
       margin-bottom: 0;
     }
   }
-  &-skills__item-btn {
+  &-sins__item-btn {
     color: #fff;
     background-color: #fe3e57;
     padding: 0 8px;
@@ -508,7 +515,7 @@ select {
 }
 .zadrot {
   padding-top: 20px;
-
+  background-color: #fff;
   &__title {
     color: #fe3e57;
     font-size: 22px;
@@ -592,14 +599,21 @@ select {
     width: 100%;
   }
 }
-// &-item__btn {
-//     color: #fff;
-//     background-color: #fe3e57;
-//     padding: 0 8px;
-//     cursor: pointer;
-//     border: none;
-//     &:disabled {
-//       background-color: #8d8d8d;
-//       cursor: default;
-//     }
-//   }
+
+.atheist,
+.cristian,
+.zadrot {
+  transform: translateY(-200%);
+  z-index: -1;
+  position: absolute;
+  transition: all 0.5s;
+}
+
+.atheist.active,
+.cristian.active,
+.zadrot.active {
+  // display: block;
+  transform: translateY(0%);
+  position: static;
+  z-index: 0;
+}
