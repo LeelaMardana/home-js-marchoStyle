@@ -25,6 +25,8 @@ const hero = document.querySelector("[name=zadrot-class__select]");
 const fraction = document.querySelector("[name=zadrot-fraction__select]");
 const list = document.querySelector(".data__items");
 
+let destinyValue = "";
+
 const firstWord = (word) => {
   return word.trim()[0].toUpperCase() + word.trim().substring(1).toLowerCase();
 };
@@ -141,24 +143,11 @@ const appData = {
     this.addSins();
 
     selectDestiny.addEventListener("change", () => {
-      const selected = selectDestiny.options[selectDestiny.selectedIndex].value;
-      if (selected === "atheist") {
-        cristian.classList.remove("active");
-        zadrot.classList.remove("active");
-        atheist.classList.add("active");
-      } else if (selected === "cristian") {
-        zadrot.classList.remove("active");
-        atheist.classList.remove("active");
-        cristian.classList.add("active");
-      } else if (selected === "zadrot") {
-        atheist.classList.remove("active");
-        cristian.classList.remove("active");
-        zadrot.classList.add("active");
-      } else {
-        atheist.classList.remove("active");
-        cristian.classList.remove("active");
-        zadrot.classList.remove("active");
-      }
+      destinyValue = selectDestiny.options[selectDestiny.selectedIndex].value;
+      const array = [cristian, atheist, zadrot];
+
+      array.forEach((item) => item.classList.remove("active"));
+      if (destinyValue !== "") eval(destinyValue).classList.add("active");
     });
 
     this.people = JSON.parse(localStorage.getItem("note")) || [];
@@ -275,9 +264,8 @@ const appData = {
 
   checkValues() {
     this.isError = false;
-    const selected = selectDestiny.options[selectDestiny.selectedIndex].value;
     const languageItem = document.querySelectorAll(".main-language__item");
-    const array = [namee.value, lastName.value, selected];
+    const array = [namee.value, lastName.value, destinyValue];
 
     const atheistValues = () => {
       const skillItem = document.querySelectorAll(".atheist-skills__item");
@@ -315,11 +303,11 @@ const appData = {
       this.isError = true;
     }
 
-    if (selected === "atheist") {
+    if (destinyValue === "atheist") {
       atheistValues();
-    } else if (selected === "cristian") {
+    } else if (destinyValue === "cristian") {
       cristValues();
-    } else if (selected === "zadrot") {
+    } else if (destinyValue === "zadrot") {
       zadrotValues();
     }
 
@@ -331,15 +319,11 @@ const appData = {
   },
 
   getChoce() {
-    const destiny = firstWord(
-      selectDestiny.options[selectDestiny.selectedIndex].value
-    );
-
-    if (destiny === "Atheist") {
+    if (destinyValue === "atheist") {
       this.createAtheist();
-    } else if (destiny === "Cristian") {
+    } else if (destinyValue === "cristian") {
       this.createCristian();
-    } else if (destiny === "Zadrot") {
+    } else if (destinyValue === "zadrot") {
       this.createZadrot();
     }
     location.reload();
@@ -485,9 +469,8 @@ const appData = {
     localStorage.setItem("note", JSON.stringify(this.people));
 
     list.innerHTML = "";
-    this.people.forEach((person) => {
+    this.people.forEach((person, index) => {
       const item = document.createElement("div");
-      const index = this.people.indexOf(person);
 
       let text;
       const textAtheist = () => {
@@ -544,7 +527,6 @@ const appData = {
       }
 
       item.classList.add("data-item");
-      item.setAttribute("data-item", index + 1);
       item.innerHTML = `<h4 class="data-item__title">${person.name} - ${
         person.destiny
       }</h4>
@@ -584,14 +566,12 @@ const appData = {
                         </button>
                     </ul>`;
       list.prepend(item);
-
       item.querySelector(".data-item__btn").addEventListener("click", () => {
-        this.people.splice(+item.dataset.item - 1, 1);
+        this.people.splice(index, 1);
         this.render();
       });
     });
   },
-  delPerson() {},
 
   start() {
     this.getChoce();
